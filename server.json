@@ -9,6 +9,14 @@
       "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food1.png"
     },
     {
+      "id": 2,
+      "name": "Veggie",
+      "description": "Macarrão com pimentão, ervilha e ervas finas colhidas no himalaia.",
+      "price": "21.90",
+      "available": true,
+      "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food2.png"
+    },
+    {
       "id": 3,
       "name": "A la Camarón",
       "description": "Macarrão com vegetais de primeira linha e camarão dos 7 mares.",
@@ -18,10 +26,10 @@
     },
     {
       "image": "https://storage.googleapis.com/golden-wind/bootcamp-gostack/desafio-food/food3.png",
-      "name": "samuel",
-      "price": "343",
-      "description": "gdgd",
-      "available": true,
+      "name": "A La Sucon 2.0",
+      "price": "69.99",
+      "description": "La suco mais bueno",
+      "available": false,
       "id": 4
     }
   ]

@@ -1,7 +1,6 @@
 import { ReactNode } from "react";
 import ReactModal from "react-modal";
 
-
 interface ModalProps {
   isOpen: boolean;
   setIsOpen: () => void;
