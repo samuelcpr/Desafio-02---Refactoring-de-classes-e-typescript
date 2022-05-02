@@ -1,38 +1,44 @@
-import { ReactNode } from "react";
-import ReactModal from "react-modal";
+import { useRef } from "react";
+import { FiCheckSquare } from "react-icons/fi";
 
-interface ModalProps {
+import { Form } from "./styles";
+import { Modal } from "../Modal";
+import { Input } from "../Input";
+import { IFood } from "../../types";
+
+interface ModalAddFoodProps {
   isOpen: boolean;
   setIsOpen: () => void;
-  children: ReactNode;
+  handleAddFood: (data: IFood) => void;
 }
-export function Modal({ isOpen, setIsOpen, children }: ModalProps) {
+export function ModalAddFood({
+  isOpen,
+  setIsOpen,
+  handleAddFood,
+}: ModalAddFoodProps) {
+  const formRef = useRef(null);
+
+  async function handleSubmit(data: IFood) {
+    handleAddFood(data);
+    setIsOpen();
+  }
   return (
-    <ReactModal
-      shouldCloseOnOverlayClick={!false}
-      onRequestClose={setIsOpen}
-      isOpen={isOpen}
-      ariaHideApp={false}
-      style={{
-        content: {
-          top: "50%",
-          left: "50%",
-          right: "auto",
-          bottom: "auto",
-          marginRight: "-50%",
-          transform: "translate(-50%, -50%)",
-          background: "#F0F0F5",
-          color: "#000000",
-          borderRadius: "8px",
-          width: "736px",
-          border: "none",
-        },
-        overlay: {
-          backgroundColor: "#121214e6",
-        },
-      }}
-    >
-      {children}
-    </ReactModal>
+    <Modal isOpen={isOpen} setIsOpen={setIsOpen}>
+      <Form ref={formRef} onSubmit={handleSubmit}>
+        <h1>Novo Prato</h1>
+        <Input name="image" placeholder="Cole o link aqui" />
+
+        <Input name="name" placeholder="Ex: Moda Italiana" />
+        <Input name="price" placeholder="Ex: 19.90" />
+
+        <Input name="description" placeholder="Descrição" />
+        <button type="submit" data-testid="add-food-button">
+          <p className="text">Adicionar Prato</p>
+          <div className="icon">
+            <FiCheckSquare size={24} />
+          </div>
+        </button>
+      </Form>
+    </Modal>
   );
 }

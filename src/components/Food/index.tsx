@@ -76,8 +76,8 @@ export function Food({ food, handleDelete, handleEditFood }: FoodProps) {
   );
 }
 
-//   setEditingFood = () => {
-//     const { food, handleEditFood } = props;
+// setEditingFood = () => {
+//   const { food, handleEditFood } = props;
 
-//     handleEditFood(food);
-//   };
+//   handleEditFood(food);
+// };

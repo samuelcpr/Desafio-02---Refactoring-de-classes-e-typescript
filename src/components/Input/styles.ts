@@ -1,43 +1,55 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 
-export const Container = styled.div`
-  background: #c72828;
-  padding: 30px 0;
+interface Props {
+  isFocused: boolean;
+  isFilled: boolean;
+}
+export const Container = styled.div<Props>`
+  display: flex;
+  align-items: center;
 
-  header {
-    width: 1280px;
-    margin: 0 auto;
-    padding: 0 0 160px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  background: #fff;
+  border-radius: 8px;
+  padding: 18px 24px;
+  width: 100%;
+  font-size: 16px;
 
-    nav {
-      div {
-        button {
-          font-weight: 600;
-          border-radius: 8px;
-          border: 0;
-          background: #39b100;
-          color: #fff;
+  & + div {
+    margin-top: 24px;
+  }
 
-          display: flex;
-          flex-direction: row;
-          align-items: center;
+  h1 {
+    margin-bottom: 40px;
+    font-weight: 600;
+    font-size: 36px;
+    line-height: 36px;
+  }
 
-          .text {
-            padding: 16px 24px;
-          }
+  ${(props) =>
+    props.isFocused &&
+    css`
+      color: #ff9000;
+      border-color: #ff9000;
+    `}
 
-          .icon {
-            display: flex;
-            padding: 16px 16px;
-            background: #41c900;
-            border-radius: 0 8px 8px 0;
-            margin: 0 auto;
-          }
-        }
-      }
+  ${(props) =>
+    props.isFilled &&
+    css`
+      color: #ff9000;
+    `}
+
+  input {
+    flex: 1;
+    background: transparent;
+    border: 0;
+    color: #b7b7cc;
+
+    &::placeholder {
+      color: #b7b7cc;
     }
+  }
+
+  svg {
+    margin-right: 16px;
   }
 `;
